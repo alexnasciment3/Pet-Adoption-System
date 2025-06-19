@@ -5,5 +5,4 @@ const router = Router();
 
 router.post('/', adoptionController.create);
 
-
 export default router;

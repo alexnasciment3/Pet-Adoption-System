@@ -5,8 +5,7 @@ export default (sequelize) => {
     name: { type: DataTypes.STRING, allowNull: false },
     email: { type: DataTypes.STRING },
     amount: { type: DataTypes.FLOAT, allowNull: false },
-    message: { type: DataTypes.STRING },
-    qrcode: { type: DataTypes.TEXT }
+    message: { type: DataTypes.STRING }
   }, {
     tableName: 'donations',
     timestamps: true
