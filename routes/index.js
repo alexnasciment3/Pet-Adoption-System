@@ -1,14 +1,15 @@
 import { Router } from 'express';
-import animaisRoutes from './animais.routes.js';
-import tutoresRoutes from './tutores.routes.js';
-import adocoesRoutes from './adocoes.routes.js';
-import doacoesRoutes from './doacoes.routes.js';
+import animaisRoutes from './animals.routes.js';
+import tutorRoutes from './tutors.routes.js';
+import adoptionRoutes from './adoptions.routes.js';
+import donationRoutes from './donations.routes.js';
 
 const routes = Router();
+    
+routes.use('/animals', animaisRoutes);
+routes.use('/tutors', tutorRoutes);
+routes.use('/adoptions', adoptionRoutes);
+routes.use('/donations', donationRoutes);
 
-routes.use('/animais', animaisRoutes);
-routes.use('/tutores', tutoresRoutes);
-routes.use('/adocoes', adocoesRoutes);
-routes.use('/doacoes', doacoesRoutes);
 
 export default routes;
