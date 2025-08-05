@@ -11,8 +11,8 @@ app.use(express.json());
 app.use('/api', routes);
 
 sequelize.sync().then(() => {
-  console.log('📦 Banco de dados sincronizado');
+  console.log('📦 Database synchronized');
   app.listen(port, () => {
-    console.log(`🚀 Servidor rodando em http://localhost:${port}`);
+    console.log(`🚀 Server running at http://localhost:${port}`);
   });
 });
