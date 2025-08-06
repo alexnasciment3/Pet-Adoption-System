@@ -2,15 +2,49 @@ import { DataTypes } from 'sequelize';
 
 export default (sequelize) => {
     return sequelize.define('Animal', {
-        name: { type: DataTypes.STRING, allowNull: false },
-        species: { type: DataTypes.STRING, allowNull: false },
-        size: { type: DataTypes.STRING, allowNull: false },
-        neutered: { type: DataTypes.BOOLEAN, allowNull: false },
-        vaccinated: { type: DataTypes.BOOLEAN, allowNull: false },
-        description: { type: DataTypes.STRING, allowNull: false },
-        photo: { type: DataTypes.BLOB('long') },
+        id: {
+            type: DataTypes.UUID,
+            defaultValue: DataTypes.UUIDV4,
+            primaryKey: true,
+            allowNull: false
+        },
+        nome: { 
+            type: DataTypes.STRING,
+            allowNull: false 
+        },
+        especie: { 
+            type: DataTypes.STRING, 
+            allowNull: false 
+        },
+        porte: { 
+            type: DataTypes.STRING, 
+            allowNull: false 
+        },
+        castrado: { 
+            type: DataTypes.BOOLEAN, 
+            allowNull: false, 
+            defaultValue: false 
+        },
+        vacinado: { 
+            type: DataTypes.BOOLEAN, 
+            allowNull: false, 
+            defaultValue: false 
+        },
+        adotado: { 
+            type: DataTypes.BOOLEAN, 
+            allowNull: false, 
+            defaultValue: false
+        },
+        descricao: { 
+            type: DataTypes.STRING, 
+            allowNull: false 
+        },
+        foto: { 
+            type: DataTypes.BLOB('long'),
+            allowNull: true
+        }
     }, {
-        tableName: 'animals',
+        tableName: 'animais',
         timestamps: true,
     });
 };

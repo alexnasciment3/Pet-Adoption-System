@@ -7,7 +7,7 @@ import donationRoutes from './donations.routes.js';
 const routes = Router();
     
 routes.use('/animals', animaisRoutes);
-routes.use('/tutors', tutorRoutes);
+routes.use('/tutores', tutorRoutes);
 routes.use('/adoptions', adoptionRoutes);
 routes.use('/donations', donationRoutes);
 

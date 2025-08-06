@@ -1,35 +1,36 @@
-import { Tutor, Questionnaire } from '../models/index.js';
+import { Usuario, Questionnaire } from '../models/index.js';
 
-export async function createTutorWithQuestionnaire(data) {
-    const { questionnaire, ...tutorData } = data;
+export async function createUsuarioWithQuestionnaire(data) {
+    const { questionnaire, ...usuarioData } = data;
 
-    const exists = await Tutor.findOne({ where: { email: tutorData.email } });
+    const exists = await Usuario.findOne({ where: { email: usuarioData.email } });
     if (exists) {
         const error = new Error('Email is already in use.');
         error.status = 400;
         throw error;
     }
-
-    if (!questionnaire || Object.keys(questionnaire).length === 0) {
-        const error = new Error('Questionnaire is required.');
-        error.status = 400;
-        throw error;
+    if (!usuarioData.administrador) {
+        if (!questionnaire || Object.keys(questionnaire).length === 0) {
+            const error = new Error('Questionnaire is required.');
+            error.status = 400;
+            throw error;
+        }
     }
 
-    const newTutor = await Tutor.create({
-        ...tutorData,
+    const newUsuario = await Usuario.create({
+        ...usuarioData,
         questionnaire: questionnaire
     }, {
         include: ['questionnaire']
     });
 
-    return newTutor;
+    return newUsuario;
 }
 
-export async function getTutorWithQuestionnaire(id) {
-    const tutor = await Tutor.findByPk(id, {
-        include: { model: Questionnaire, as: 'questionnaire' }
+export async function getUsuarioWithQuestionnaire(id) {
+    const usuario = await Usuario.findByPk(id, {
+        include: { model: Questionario, as: 'questionnaire' }
     });
 
-    return tutor;
+    return usuario;
 }

@@ -1,10 +1,10 @@
-import { AdoptionRequest, Tutor, Animal, sequelize } from '../models/index.js';
+import { AdoptionRequest, Usuario, Animal, sequelize } from '../models/index.js';
 
-export async function createAdoptionRequest(tutorId, animalId) {
+export async function createAdoptionRequest(usuarioId, animalId) {
 
-    const tutor = await Tutor.findByPk(tutorId);
-    if (!tutor) {
-        const error = new Error('Tutor not found');
+    const usuario = await Usuario.findByPk(usuarioId);
+    if (!usuario) {
+        const error = new Error('Usuario not found');
         error.status = 404;
         throw error;
     }
