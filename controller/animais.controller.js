@@ -1,4 +1,4 @@
-import { createAnimal, listAnimals } from '../services/animalService.js';
+import { createAnimal, listAnimals } from '../services/animais.service.js';
 
 export const animalController = {
     async create(req, res) {
@@ -7,7 +7,7 @@ export const animalController = {
             return res.status(201).json(newAnimal);
         } catch (error) {
             const status = error.status || 500;
-            const message = error.message || 'Internal error while creating the animal.';
+            const message = error.message || 'Erro interno ao cadastrar o animal.';
             return res.status(status).json({ error: message });
         }
     },

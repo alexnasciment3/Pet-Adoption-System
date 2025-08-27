@@ -1,22 +1,22 @@
-import { Animal } from '../models/index.js';
+import { Animal } from '../models/modelos.js';
 
 export async function createAnimal(data, imageBuffer) {
-    const { name, species, size, neutered, vaccinated, description } = data;
+    const { nome, especie, porte, castrado, vacinado, descricao } = data;
 
-    if (!name || !species || !size || neutered === undefined || vaccinated === undefined || !description) {
+    if (!nome || !especie || !porte || castrado === undefined || vacinado === undefined || !descricao) {
         const error = new Error('All required fields must be filled in correctly.');
         error.status = 400;
         throw error;
     }
 
     const newAnimal = await Animal.create({
-        name,
-        species,
-        size,
-        neutered: neutered === 'true' || neutered === true,
-        vaccinated: vaccinated === 'true' || vaccinated === true,
-        description: description?.trim(),
-        photo: imageBuffer || null,
+        nome,
+        especie,
+        porte,
+        castrado: castrado === 'true' || castrado === true,
+        vacinado: vacinado === 'true' || vacinado === true,
+        descricao: descricao?.trim(),
+        foto: imageBuffer || null,
     });
 
     return newAnimal;

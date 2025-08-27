@@ -1,8 +1,8 @@
-import { Router } from 'express';
-import { donationController } from '../controller/donationController.js';
+// import { Router } from 'express';
+// import { donationController } from '../controller/donationController.js';
 
-const router = Router();
+// const router = Router();
 
-router.post('/', donationController.create);
+// router.post('/', donationController.create);
 
-export default router;
+// export default router;

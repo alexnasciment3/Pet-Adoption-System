@@ -1,9 +1,9 @@
-import { Usuario, Questionnaire } from '../models/index.js';
+import { Tutor, Questionario } from '../models/modelos.js';
 
 export async function createUsuarioWithQuestionnaire(data) {
     const { questionnaire, ...usuarioData } = data;
 
-    const exists = await Usuario.findOne({ where: { email: usuarioData.email } });
+    const exists = await Tutor.findOne({ where: { email: usuarioData.email } });
     if (exists) {
         const error = new Error('Email is already in use.');
         error.status = 400;

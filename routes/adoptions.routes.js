@@ -1,8 +1,8 @@
-import { Router } from 'express';
-import { adoptionController } from '../controller/adoptionController.js';
+// import { Router } from 'express';
+// import { adoptionController } from '../controller/adoptionController.js';
 
-const router = Router();
+// const router = Router();
 
-router.post('/', adoptionController.create);
+// router.post('/', adoptionController.create);
 
-export default router;
+// export default router;
